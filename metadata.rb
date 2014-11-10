@@ -7,3 +7,4 @@ long_description 'Installs/Configures hadoop-java8'
 version          '0.1.0'
 
 depends 'java'
+depends 'hadoop'
