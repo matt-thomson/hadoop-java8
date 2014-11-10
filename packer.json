@@ -1,0 +1,27 @@
+{
+    "builders": [
+        {
+            "export_path": "image.tar",
+            "image": "ubuntu",
+            "type": "docker"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "inline": [
+                "apt-get update",
+                "apt-get -y install curl"
+            ]
+        },
+        {
+            "type": "chef-solo",
+            "cookbook_paths": [
+                "cookbooks"
+            ],
+            "run_list": [
+                "hadoop-java8::default"
+            ]
+        }
+    ]
+}
