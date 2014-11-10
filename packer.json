@@ -1,9 +1,9 @@
 {
     "builders": [
         {
-            "export_path": "image.tar",
+            "type": "docker",
             "image": "ubuntu",
-            "type": "docker"
+            "commit": true
         }
     ],
     "provisioners": [
