@@ -7,6 +7,6 @@ describe command('hadoop version') do
     its(:stdout) { should match /Hadoop 2.4.0/ }
 end
 
-describe command('hdfs dfs -ls'), :pending do
+describe command('hdfs dfs -ls /') do
     its(:exit_status) { should eq 0 }
 end
