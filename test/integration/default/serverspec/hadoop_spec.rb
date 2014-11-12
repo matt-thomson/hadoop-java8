@@ -17,3 +17,7 @@ describe command('hdfs dfs -cat test') do
     its(:exit_status) { should eq 0 }
     its(:stdout) { should eq "abc123\n" }
 end
+
+describe command('hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 10 1000') do
+	its(:exit_status) { should eq 0 }
+end
