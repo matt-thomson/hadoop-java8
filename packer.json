@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "ubuntu:trusty",
+            "image": "ubuntu:utopic",
             "commit": true
         }
     ],
