@@ -40,21 +40,6 @@ ruby_block 'start-datanode' do
   end
 end
 
-execute 'set-hdfs-permissions' do
-  user 'hdfs'
-  command 'hdfs dfs -chmod 777 /'
-  notifies :create, 'ruby_block[set-hdfs-permissions-flag]', :immediately
-  not_if { node.attribute?('hdfs-permissions-set') }
-end
-
-ruby_block 'set-hdfs-permissions-flag' do
-  block do
-    node.set['hdfs-permissions-set'] = true
-    node.save
-  end
-  action :nothing
-end
-
 ruby_block 'create-hdfs-tmpdir' do
   block do
     resources('execute[hdfs-tmpdir]').run_action(:run)
