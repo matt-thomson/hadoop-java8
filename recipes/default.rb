@@ -8,20 +8,13 @@ include_recipe 'hadoop::hadoop_hdfs_datanode'
 include_recipe 'hadoop::hadoop_yarn_resourcemanager'
 include_recipe 'hadoop::hadoop_yarn_nodemanager'
 
+marker_file = "#{Chef::Config[:file_cache_path]}/hdfs_formatted"
 ruby_block 'format-hdfs' do
   block do
     resources('execute[hdfs-namenode-format]').run_action(:run)
+    File.open(marker_file, 'w') {}
   end
-  notifies :create, 'ruby_block[set-hdfs-formatted-flag]', :immediately
-  not_if { node.attribute?('hdfs-formatted') }
-end
-
-ruby_block 'set-hdfs-formatted-flag' do
-  block do
-    node.set['hdfs-formatted'] = true
-    node.save
-  end
-  action :nothing
+  not_if { File.exist? marker_file }
 end
 
 ruby_block 'start-namenode' do

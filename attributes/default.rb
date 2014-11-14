@@ -11,4 +11,4 @@ default['hadoop']['yarn_site']['yarn.application.classpath'] = '/etc/hadoop/conf
 default['hadoop']['yarn_site']['yarn.nodemanager.aux-services'] = 'mapreduce_shuffle'
 default['hadoop']['yarn_site']['yarn.nodemanager.aux-services.mapreduce_shuffle.class'] = 'org.apache.hadoop.mapred.ShuffleHandler'
 default['hadoop']['yarn_site']['yarn.scheduler.capacity.resource-calculator'] = 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
-default['hadoop']['yarn_site']['yarn.nodemanager.resource.cpu-vcores'] = 1
+default['hadoop']['yarn_site']['yarn.nodemanager.resource.cpu-vcores'] = 2
