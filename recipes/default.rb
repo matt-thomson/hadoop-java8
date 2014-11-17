@@ -1,5 +1,7 @@
 include_recipe 'java::default'
 
+node.default['hadoop']['hadoop_env']['java_home'] = node['java']['java_home']
+
 include_recipe 'hadoop::default'
 
 include_recipe 'hadoop::hadoop_hdfs_namenode'

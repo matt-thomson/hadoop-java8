@@ -2,7 +2,7 @@
     "builders": [
         {
             "type": "docker",
-            "image": "ubuntu:utopic",
+            "image": "debian:wheezy",
             "commit": true
         }
     ],
@@ -11,7 +11,7 @@
             "type": "shell",
             "inline": [
                 "apt-get update",
-                "apt-get -y install curl"
+                "apt-get -y install curl sudo"
             ]
         },
         {
@@ -20,8 +20,16 @@
                 "cookbooks"
             ],
             "run_list": [
-                "hadoop-java8::default"
+                "hadoop-java8::default",
+                "hadoop-java8::reset"
             ]
+        }
+    ],
+    "post-processors": [
+        {
+            "type": "docker-tag",
+            "repository": "mattthomson/hadoop-java8",
+            "tag": "0.1"
         }
     ]
 }
