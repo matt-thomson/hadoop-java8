@@ -1,7 +1,6 @@
-cookbook_file 'bootstrap.sh' do
-  path '/etc/bootstrap.sh'
+template '/etc/bootstrap.sh' do
+  source 'bootstrap.sh.erb'
   mode '0755'
-  action :create_if_missing
 end
 
 ruby_block 'stop-resourcemanager' do

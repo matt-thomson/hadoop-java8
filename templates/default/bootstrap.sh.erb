@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sed s/HOSTNAME/$HOSTNAME/ /etc/hadoop/conf/core-site.xml > /etc/hadoop/conf/core-site.xml
+sed --in-place s/<%= node[:fqdn] %>/$HOSTNAME/ /etc/hadoop/conf/*
 
 service hadoop-hdfs-namenode start
 service hadoop-hdfs-datanode start
