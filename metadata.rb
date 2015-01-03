@@ -4,7 +4,7 @@ maintainer_email 'mattjohnthomson@gmail.com'
 license          'MIT'
 description      'Installs/Configures hadoop-java8'
 long_description 'Installs/Configures hadoop-java8'
-version          '0.1.0'
+version          '0.2.0'
 
 depends 'java'
 depends 'hadoop'
