@@ -6,6 +6,7 @@ default['java']['set_etc_environment'] = true
 default['hadoop']['hdfs_site']['dfs.permissions'] = false
 
 default['hadoop']['mapred_site']['mapreduce.framework.name'] = 'yarn'
+default['hadoop']['mapred_site']['mapreduce.job.reduce.slowstart.completedmaps'] = 1.00
 
 default['hadoop']['yarn_site']['yarn.application.classpath'] = '/etc/hadoop/conf,/usr/lib/hadoop/*,/usr/lib/hadoop/lib/*,/usr/lib/hadoop-hdfs/*,/usr/lib/hadoop-hdfs/lib/*,/usr/lib/hadoop-mapreduce/*,/usr/lib/hadoop-mapreduce/lib/*,/usr/lib/hadoop-yarn/*,/usr/lib/hadoop-yarn/lib/*'
 default['hadoop']['yarn_site']['yarn.nodemanager.aux-services'] = 'mapreduce_shuffle'

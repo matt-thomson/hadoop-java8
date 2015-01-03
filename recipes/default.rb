@@ -1,3 +1,9 @@
+include_recipe 'apt'
+
+package 'procps' do
+  action :install
+end
+
 include_recipe 'java::default'
 
 node.default['hadoop']['hadoop_env']['java_home'] = node['java']['java_home']

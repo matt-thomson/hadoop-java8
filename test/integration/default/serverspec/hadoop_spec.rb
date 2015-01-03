@@ -18,7 +18,7 @@ describe command('hdfs dfs -cat test') do
     its(:stdout) { should eq "abc123\n" }
 end
 
-describe command('hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 2 1000') do
+describe command('hadoop jar /usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar pi 5 1000') do
 	its(:exit_status) { should eq 0 }
     its(:stdout) { should match /Estimated value of Pi is 3.14/ }
 end
